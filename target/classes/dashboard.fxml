@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import org.kordamp.ikonli.javafx.*?>
+
+<AnchorPane maxHeight="750.0" maxWidth="1399.0" minHeight="750.0" minWidth="1399.0" prefHeight="750.0" prefWidth="1399.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox id="dash-menu" layoutX="-1.0" prefHeight="750.0" prefWidth="200.0" style="-fx-background-color: #555;">
+         <children>
+            <AnchorPane fx:id="anchor_dash_mydetails" onMouseClicked="#showMyAccount" prefHeight="60.0" prefWidth="200.0" style="-fx-border-style: hidden hidden solid hidden; -fx-border-color: lightsteelblue;" styleClass="dashuser">
+               <children>
+                  <Circle fx:id="circle_acc_image" fill="#555555" layoutX="37.0" layoutY="30.0" radius="20.0" stroke="#ecd32c" strokeType="OUTSIDE" strokeWidth="3.0" />
+                  <Label fx:id="label_dash_user" layoutX="73.0" layoutY="9.0" text="Name" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="label_dash_role" layoutX="73.0" layoutY="31.0" text="Role" textFill="WHITE" />
+               </children>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </AnchorPane>
+            <Button id="account" fx:id="button_dash_myaccount" alignment="BASELINE_LEFT" mnemonicParsing="false" onMouseClicked="#showMyAccount" prefHeight="45.0" prefWidth="200.0" style="-fx-border-color: lightseagreen; -fx-border-style: hidden hidden solid hidden;" styleClass="dashmenu" stylesheets="@styles.css" text="My Account" textFill="WHITE">
+               <graphic>
+                  <FontIcon iconColor="WHITE" iconLiteral="fltfmz-person-12" iconSize="18" />
+               </graphic>
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="button_dash_users" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="421.0" mnemonicParsing="false" onMouseClicked="#showUsersOnClick" prefHeight="45.0" prefWidth="200.0" style="-fx-border-color: moccasin; -fx-border-style: hidden hidden solid hidden;" styleClass="dashmenu" stylesheets="@styles.css" text="Users" textFill="WHITE">
+               <graphic>
+                  <FontIcon iconColor="WHITE" iconLiteral="fltfmz-people-community-20" iconSize="18" />
+               </graphic>
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="button_dash_jobs" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="465.0" mnemonicParsing="false" onMouseClicked="#showJobsOnClick" prefHeight="45.0" prefWidth="200.0" style="-fx-border-color: lightpink; -fx-border-style: hidden hidden solid hidden;" styleClass="dashmenu" stylesheets="@styles.css" text="Jobs" textFill="WHITE">
+               <graphic>
+                  <FontIcon iconColor="WHITE" iconLiteral="fltfmz-people-community-20" iconSize="18" />
+               </graphic>
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="button_dash_tasks" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="509.0" mnemonicParsing="false" onMouseClicked="#showTasksOnClick" prefHeight="45.0" prefWidth="200.0" style="-fx-border-color: khaki; -fx-border-style: hidden hidden solid hidden;" styleClass="dashmenu" stylesheets="@styles.css" text="Tasks" textFill="WHITE">
+               <graphic>
+                  <FontIcon iconColor="WHITE" iconLiteral="fltrmz-task-list-20" iconSize="18" />
+               </graphic>
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+      </VBox>
+      <VBox layoutX="199.0" prefHeight="700.0" prefWidth="1200.0" style="-fx-background-color: #888;">
+         <children>
+            <AnchorPane fx:id="anchor_dash_title" maxHeight="60.0" maxWidth="1200.0" minHeight="60.0" minWidth="1200.0" prefHeight="60.0" prefWidth="1200.0" style="-fx-border-color: lightsteelblue; -fx-background-color: #555; -fx-border-style: hidden hidden solid hidden;">
+               <children>
+                  <Label fx:id="label_dash_title" layoutX="600.0" layoutY="15.0" text="Title" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="button_logout" layoutX="1100.0" layoutY="10.0" mnemonicParsing="false" onMouseClicked="#logout" prefHeight="40.0" prefWidth="80.0" styleClass="button-salmon" text="Logout">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
+               </children>
+            </AnchorPane>
+            <StackPane fx:id="dash_stackpane" maxHeight="690.0" maxWidth="1200.0" minHeight="690.0" minWidth="1200.0" prefHeight="690.0" prefWidth="1200.0">
+<!--               user panes-->
+               <fx:include fx:id="userList" source="userlist.fxml" />
+               <fx:include fx:id="editUser" source="edituser.fxml" />
+               <fx:include fx:id="newUser" source="newuser.fxml" />
+<!--               job panes-->
+               <fx:include fx:id="jobList" source="joblist.fxml" />
+               <fx:include fx:id="editJob" source="editjob.fxml" />
+               <fx:include fx:id="newJob" source="newjob.fxml" />
+<!--               task panes-->
+               <fx:include fx:id="taskList" source="tasklist.fxml" />
+               <fx:include fx:id="editTask" source="edittask.fxml" />
+               <fx:include fx:id="newTask" source="newtask.fxml" />
+
+            </StackPane>
+         </children></VBox>
+   </children>
+</AnchorPane>

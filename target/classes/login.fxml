@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import org.kordamp.ikonli.javafx.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1400.0" style="-fx-background-color: #333333;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.UserCredsController">
+    <center>
+        <AnchorPane maxHeight="750.0" maxWidth="1400.0" minHeight="750.0" minWidth="1400.0" prefHeight="750.0" prefWidth="1400.0" BorderPane.alignment="CENTER">
+            <children>
+                <ImageView fitHeight="79.0" fitWidth="79.0" layoutX="661.0" layoutY="255.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@vulture_white.png" />
+                    </image>
+                </ImageView>
+                <Label layoutX="639.0" layoutY="331.0" text="VULTURE" textFill="WHITE">
+                    <font>
+                        <Font name="Century" size="24.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="tf_username" layoutX="636.0" layoutY="386.0" promptText="Enter Username" style="-fx-background-color: #555; -fx-text-fill:white;" />
+
+                <PasswordField fx:id="pf_password" editable="false" layoutX="636.0" layoutY="428.0" promptText="Enter Password" style="-fx-background-color: #555; -fx-text-fill:white;" />
+                <Label fx:id="label_user_not_found" layoutX="642.0" layoutY="412.0" opacity="1.0" text="" textFill="LIGHTSALMON"/>
+                <Label fx:id="label_password_not_found" layoutX="629.0" layoutY="454.0" opacity="1.0" text="" textFill="LIGHTSALMON"/>
+            <FontIcon fx:id="icon_account" iconColor="WHITE" iconLiteral="fltfmz-person-12" iconSize="20" layoutX="609.0" layoutY="409.0" />
+            <FontIcon fx:id="icon_pass" iconColor="WHITE" iconLiteral="fltfmz-unlock-20" iconSize="20" layoutX="608.0" layoutY="451.0" />
+                <Button fx:id="button_login" defaultButton="true" disable="true" layoutX="675.0" layoutY="470.0" mnemonicParsing="false" onAction="#signIn" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Login" textFill="WHITE">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Button>
+            <ProgressIndicator fx:id="pi_sceneProgress" layoutX="676.0" layoutY="512.0" progress="0.0" visible="false" />
+            </children>
+        </AnchorPane>
+    </center>
+</BorderPane>

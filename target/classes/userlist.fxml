@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import org.kordamp.ikonli.javafx.*?>
+
+<AnchorPane fx:id="ulist_main" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="690.0" prefWidth="1200.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.UserListController">
+    <VBox maxHeight="690.0" maxWidth="1200.0" minHeight="690.0" minWidth="1200.0" prefHeight="690.0" prefWidth="1200.0" style="-fx-background-color: #333;">
+       <children>
+          <AnchorPane maxHeight="91.0" maxWidth="1200.0" minHeight="91.0" minWidth="1200.0" prefHeight="91.0" prefWidth="1200.0" style="-fx-background-color: #333; -fx-border-color: moccasin; -fx-border-style: hidden hidden solid hidden;">
+             <children>
+                <Button fx:id="button_new_user" layoutX="1100.0" layoutY="25.0" mnemonicParsing="false" onMouseClicked="#newUser" prefHeight="40.0" prefWidth="80.0" styleClass="button-green" text="+ New User" textFill="#555555" />
+                 <FontIcon fx:id="icon_search" iconColor="WHITE" iconLiteral="fltfmz-search-24" iconSize="20" layoutX="680.0" layoutY="55.0" text="" />
+                 <TextField fx:id="tf_filter" layoutX="525.0" layoutY="30.0" maxHeight="30.0" maxWidth="150.0" minHeight="30.0" minWidth="150.0" onMouseClicked="#filterList" prefHeight="30.0" prefWidth="150.0" promptText="Enter Keywords..." style="-fx-background-color: #555;" />
+             </children>
+          </AnchorPane>
+         <BorderPane maxHeight="350.0" maxWidth="1200.0" minHeight="350.0" minWidth="1200.0" prefHeight="350.0" prefWidth="1200.0" style="-fx-background-color: #333;">
+            <left>
+               <AnchorPane prefHeight="345.0" prefWidth="25.0" BorderPane.alignment="CENTER" />
+            </left>
+            <right>
+               <AnchorPane prefHeight="345.0" prefWidth="25.0" BorderPane.alignment="CENTER" />
+            </right>
+            <top>
+               <AnchorPane prefHeight="26.0" prefWidth="900.0" BorderPane.alignment="CENTER" />
+            </top>
+            <bottom>
+               <AnchorPane prefHeight="25.0" prefWidth="900.0" BorderPane.alignment="CENTER" />
+            </bottom>
+            <center>
+               <AnchorPane maxHeight="300.0" maxWidth="900.0" minHeight="300.0" minWidth="900.0" prefHeight="300.0" prefWidth="900.0" BorderPane.alignment="CENTER">
+                  <children>
+                     <StackPane fx:id="sp_userlistprogress" maxHeight="300.0" maxWidth="900.0" minHeight="300.0" minWidth="900.0" prefHeight="300.0" prefWidth="900.0" visible="false">
+                        <children>
+                           <ProgressIndicator fx:id="pi_userlistprogress" progress="0.0" />
+                        </children>
+                     </StackPane>
+                      <TableView id="ulist_tv" fx:id="table_userTable" layoutX="1.0" maxHeight="300.0" maxWidth="900.0" minHeight="300.0" minWidth="900.0" prefHeight="300.0" prefWidth="900.0">
+                        <columns>
+                          <TableColumn fx:id="tablec_Ufname" prefWidth="170.0" text="First Name" />
+                          <TableColumn fx:id="tablec_Usname" prefWidth="170.0" text="Surname" />
+                            <TableColumn fx:id="tablec_Uemail" prefWidth="170.0" text="Email" />
+                            <TableColumn fx:id="tablec_Urole" minWidth="6.199951171875" prefWidth="170.0" text="Role" />
+                           <TableColumn fx:id="tablec_Uactive" minWidth="6.199951171875" prefWidth="70.0" text="Available" />
+                            <TableColumn fx:id="tablec_Uedit" minWidth="4.199951171875" prefWidth="70.0" visible="true" />
+                            <TableColumn fx:id="tablec_Udelete" minWidth="0.0" prefWidth="70.0" visible="true" />
+                        </columns>
+                      </TableView>
+                  </children>
+               </AnchorPane>
+            </center>
+         </BorderPane>
+         <AnchorPane maxHeight="250.0" maxWidth="1200.0" minHeight="250.0" minWidth="1200.0" prefHeight="250.0" prefWidth="1200.0" style="-fx-border-color: moccasin; -fx-border-style: solid hidden hidden hidden; -fx-background-color: #222;">
+            <children>
+                <AnchorPane fx:id="anchor_user_details" layoutX="14.0" layoutY="14.0" prefHeight="78.0" prefWidth="200.0" style="-fx-background-color: #444; -fx-background-radius: 5;" visible="true">
+                    <Label fx:id="label_selecteduser_name" layoutX="72.0" layoutY="19.0" text="Name: " textFill="MOCCASIN">
+                        <font>
+                            <Font name="System Bold" size="14.0" />
+                        </font>
+                    </Label>
+                    <Label fx:id="label_selecteduser_role" layoutX="73.0" layoutY="39.0" text="Role" textFill="MOCCASIN" visible="true" />
+                    <Circle fx:id="circle_selecteduser_image" fill="#333333" layoutX="39.0" layoutY="39.0" radius="25.0" stroke="#d9a121" strokeType="INSIDE" strokeWidth="2.0" visible="true" />
+                </AnchorPane>
+                <PieChart fx:id="pie_userfocus" layoutX="690.0" layoutY="8.0" legendVisible="false" maxHeight="242.0" maxWidth="458.0" minHeight="150.0" minWidth="150.0" prefHeight="234.0" prefWidth="350.0" title="Assigned Task Types" visible="true" />
+               <LineChart fx:id="line_userfocus" alternativeRowFillVisible="false" animated="false" axisSortingPolicy="NONE" createSymbols="false" horizontalGridLinesVisible="false" horizontalZeroLineVisible="false" layoutX="331.0" layoutY="8.0" legendSide="TOP" prefHeight="233.0" prefWidth="326.0" title="Task Performance (This Week)" verticalGridLinesVisible="false" verticalZeroLineVisible="false" visible="true">
+                 <xAxis>
+                   <CategoryAxis prefHeight="33.0" prefWidth="272.0" side="BOTTOM" fx:id="xCat" />
+                 </xAxis>
+                 <yAxis>
+                   <NumberAxis side="LEFT" />
+                 </yAxis>
+               </LineChart>
+            </children>
+         </AnchorPane>
+       </children>
+    </VBox>
+</AnchorPane>

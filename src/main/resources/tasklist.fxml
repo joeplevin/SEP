@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import org.kordamp.ikonli.javafx.*?>
+
+<AnchorPane fx:id="tmain" maxHeight="690.0" maxWidth="1200.0" minHeight="690.0" minWidth="1200.0" prefHeight="690.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.TaskListController">
+    <VBox maxHeight="690.0" maxWidth="1200.0" minHeight="690.0" minWidth="1200.0" prefHeight="690.0" prefWidth="1200.0" style="-fx-background-color: #333;">
+        <children>
+            <AnchorPane maxHeight="91.0" maxWidth="1200.0" minHeight="91.0" minWidth="1200.0" prefHeight="91.0" prefWidth="1200.0" style="-fx-background-color: #333; -fx-border-color: khaki; -fx-border-style: hidden hidden solid hidden;">
+                <children>
+                    <Button fx:id="button_new_task" layoutX="1100.0" layoutY="25.0" mnemonicParsing="false" onMouseClicked="#newTask" prefHeight="40.0" prefWidth="80.0" styleClass="button-green" text="+ New Task" textFill="#555555" />
+                    <FontIcon fx:id="icon_search" iconColor="WHITE" iconLiteral="fltfmz-search-24" iconSize="20" layoutX="680.0" layoutY="55.0" text="" />
+                    <TextField fx:id="tf_tlist_filter" layoutX="525.0" layoutY="30.0" maxHeight="30.0" maxWidth="150.0" minHeight="30.0" minWidth="150.0" onMouseClicked="#filterTaskList" prefHeight="30.0" prefWidth="150.0" promptText="Enter Keywords..." style="-fx-background-color: #555;" />
+                    <AnchorPane layoutX="5.0" layoutY="5.0" prefHeight="81.0" prefWidth="400.0" style="-fx-background-color: #555; -fx-background-radius: 3px;">
+                        <children>
+                            <Label layoutX="3.0" text="Show:" textFill="WHITE" />
+                            <CheckBox fx:id="check_completetasks" layoutX="30.0" layoutY="23.0" mnemonicParsing="false" text="Complete Tasks" textFill="WHITE" />
+                            <CheckBox fx:id="check_opentasks" layoutX="30.0" layoutY="54.0" mnemonicParsing="false" text="Incomplete Tasks" textFill="WHITE" />
+                            <CheckBox fx:id="check_newtasks" layoutX="183.0" layoutY="23.0" mnemonicParsing="false" text="New Tasks" textFill="WHITE" />
+                            <CheckBox fx:id="check_pasttasks" layoutX="183.0" layoutY="54.0" mnemonicParsing="false" text="Past Tasks" textFill="WHITE" />
+                            <CheckBox fx:id="check_mytasks" layoutX="299.0" layoutY="23.0" mnemonicParsing="false" text="My Tasks" textFill="WHITE" />
+                        </children>
+                    </AnchorPane>
+                </children>
+            </AnchorPane>
+            <BorderPane maxHeight="350.0" maxWidth="1200.0" minHeight="350.0" minWidth="1200.0" prefHeight="350.0" prefWidth="1200.0" style="-fx-background-color: #333;">
+                <left>
+                    <AnchorPane prefHeight="500.0" prefWidth="25.0" BorderPane.alignment="CENTER" />
+                </left>
+                <right>
+                    <AnchorPane prefHeight="455.0" prefWidth="25.0" BorderPane.alignment="CENTER" />
+                </right>
+                <top>
+                    <AnchorPane prefHeight="30.0" prefWidth="900.0" BorderPane.alignment="CENTER" />
+                </top>
+                <bottom>
+                    <AnchorPane prefHeight="25.0" prefWidth="900.0" BorderPane.alignment="CENTER" />
+                </bottom>
+                <center>
+                    <AnchorPane maxHeight="350.0" maxWidth="1000.0" minHeight="300.0" minWidth="1000.0" prefHeight="300.0" prefWidth="1000.0" BorderPane.alignment="CENTER">
+                        <children>
+                            <TableView id="table_jlist" fx:id="table_tlist" maxHeight="300.0" maxWidth="1000.0" minHeight="300.0" minWidth="1000.0" prefHeight="300.0" prefWidth="1000.0">
+                                <columns>
+                                    <TableColumn fx:id="tablec_taskJob" minWidth="0.0" prefWidth="33.600006103515625" text="Job" />
+                                    <TableColumn fx:id="tablec_taskName" prefWidth="114.60000610351562" text="Name" />
+                                    <TableColumn fx:id="tablec_taskType" minWidth="6.199951171875" prefWidth="125.99995422363281" text="Task Type" />
+                           <TableColumn fx:id="tablec_taskTechRequired" minWidth="5.0" prefWidth="53.4000244140625" text="Techs Required" />
+                                    <TableColumn fx:id="tablec_taskTech" minWidth="6.199951171875" prefWidth="168.20001220703125" text="Technicians" />
+                                    <TableColumn fx:id="tablec_taskDate" prefWidth="124.60003662109375" text="Date Created" />
+                                    <TableColumn fx:id="tablec_taskDuration" prefWidth="69.79998779296875" text="Duration Estimate" />
+                                    <TableColumn fx:id="tablec_taskPriority" minWidth="6.199951171875" prefWidth="63.79998779296875" text="Priority" />
+                                    <TableColumn fx:id="tablec_taskPassFail" minWidth="0.0" prefWidth="63.79998779296875" text="Pass/Fail" />
+                                    <TableColumn fx:id="tablec_taskComplete" minWidth="4.199951171875" prefWidth="74.60003662109375" text="Complete" />
+                                    <TableColumn fx:id="tablec_taskEdit" minWidth="4.199951171875" prefWidth="51.00006103515625" text="Edit" />
+                                    <TableColumn fx:id="tablec_taskDelete" maxWidth="66.4000244140625" minWidth="0.0" prefWidth="53.7999267578125" text="Delete" />
+                                </columns>
+                            </TableView>
+                            <StackPane fx:id="sp_tasklistprogress" maxHeight="300.0" maxWidth="1000.0" minHeight="300.0" minWidth="1000.0" prefHeight="300.0" prefWidth="1000.0" visible="false">
+                                <children>
+                                    <ProgressIndicator fx:id="pi_tasklistprogress" progress="0.0" />
+                                </children>
+                            </StackPane>
+                        </children></AnchorPane>
+                </center>
+            </BorderPane>
+            <AnchorPane maxHeight="250.0" maxWidth="1200.0" minHeight="250.0" minWidth="1200.0" prefHeight="250.0" prefWidth="1200.0" style="-fx-border-color: khaki; -fx-border-style: solid hidden hidden hidden; -fx-background-color: #222;">
+                <TableView fx:id="table_availabletechs" layoutX="375.0" layoutY="37.0" prefHeight="160.0" prefWidth="260.0" visible="false">
+                    <columns>
+                        <TableColumn fx:id="tc_avtech_name" prefWidth="163.9999885559082" text="Technician Name" />
+                        <TableColumn fx:id="tc_avtech_timeav" prefWidth="92.79998779296875" text="    Time&#10;Available&#10;" />
+                    </columns>
+                </TableView>
+                <Button fx:id="button_addtech" layoutX="564.0" layoutY="211.0" mnemonicParsing="false" onMouseClicked="#saveTaskTech" styleClass="button-steelblue" text="Assign Selected Technician" visible="false" />
+                <TableView fx:id="table_avtechtaskprefs" layoutX="654.0" layoutY="37.0" prefHeight="160.0" prefWidth="250.0" visible="false">
+                    <columns>
+                        <TableColumn fx:id="tc_techtp_taskpref" prefWidth="162.66665649414062" text="     Task&#10;Preference" />
+                        <TableColumn fx:id="tc_techtp_prof" prefWidth="83.20001220703125" text="Proficiency&#10;" />
+                    </columns>
+                </TableView>
+                <TableView fx:id="table_tasktech" layoutX="966.0" layoutY="37.0" prefHeight="160.0" prefWidth="200.0" visible="false">
+                    <columns>
+                        <TableColumn fx:id="tc_tasktech_name" prefWidth="140.39996337890625" text="Technician Name" />
+                        <TableColumn fx:id="tc_tasktech_delete" prefWidth="56.4000244140625" />
+                    </columns>
+                </TableView>
+
+            <Label fx:id="label_assigntask" layoutX="607.0" layoutY="7.0" text="Assign Task" textFill="KHAKI" visible="false">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="label_assignedtechs" layoutX="1000.0" layoutY="7.0" text="Assigned Technicians" textFill="KHAKI" visible="false">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="label_focus_taskname" layoutX="70.0" layoutY="7.0" text="Task Name" textFill="KHAKI" visible="false">
+                <font>
+                    <Font size="14.0" />
+                </font>
+            </Label>
+            <AnchorPane fx:id="anchor_task_details" layoutX="15.0" layoutY="37.0" prefHeight="160.0" prefWidth="190.0" style="-fx-background-color: #444; -fx-background-radius: 5;" visible="false">
+                <Label fx:id="label_focus_taskjob" layoutX="52.0" layoutY="11.0" text="Job Id:" textFill="KHAKI" />
+                <Label fx:id="label_focus_tasktype" layoutX="31.0" layoutY="34.0" text="Task Type:" textFill="KHAKI" />
+                <Label fx:id="label_focus_tasktechreq" layoutX="17.0" layoutY="56.0" text="No. of Techs:" textFill="KHAKI" />
+                <Label fx:id="label_focus_taskcreated" layoutX="14.0" layoutY="79.0" text="Date Created:" textFill="KHAKI" />
+                <Label fx:id="label_focus_taskpriority" layoutX="45.0" layoutY="102.0" text="Priority:" textFill="KHAKI" />
+                <Label fx:id="label_focus_taskstatus" layoutX="49.0" layoutY="125.0" text="Status:" textFill="KHAKI" />
+                <Label fx:id="label_focus_taskjobval" layoutX="93.0" layoutY="11.0" text="" textFill="WHITE" />
+                <Label fx:id="label_focus_tasktypeval" layoutX="93.0" layoutY="34.0" text="" textFill="WHITE" />
+                <Label fx:id="label_focus_tasktechreqval" layoutX="93.0" layoutY="56.0" text="" textFill="WHITE" />
+                <Label fx:id="label_focus_taskcreatedval" layoutX="93.0" layoutY="79.0" text="" textFill="WHITE" />
+                <Label fx:id="label_focus_taskpriorityval" layoutX="93.0" layoutY="102.0" text="" textFill="WHITE" />
+                <Label fx:id="label_focus_taskstatusval" layoutX="93.0" layoutY="125.0" text="" textFill="WHITE" />
+            </AnchorPane>
+                    <StackPane fx:id="sp_focus_progress" prefHeight="250.0" prefWidth="1200.0" visible="false">
+               <children>
+                  <ProgressIndicator fx:id="pi_focus_progress" progress="0.0" />
+               </children>
+            </StackPane>
+            </AnchorPane>
+        </children>
+    </VBox>
+
+</AnchorPane>

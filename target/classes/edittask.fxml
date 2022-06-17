@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import org.kordamp.ikonli.javafx.*?>
+
+<VBox fx:id="tedit_main" maxHeight="690.0" maxWidth="1200.0" minHeight="690.0" minWidth="1200.0" prefHeight="690.0" prefWidth="1200.0" style="-fx-background-color: #333;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.EditTaskController">
+    <AnchorPane maxHeight="91.0" maxWidth="1200.0" minHeight="91.0" minWidth="1200.0" prefHeight="91.0" prefWidth="1200.0" style="-fx-border-color: lightpink; -fx-border-style: hidden hidden solid hidden;">
+        <children>
+            <Button fx:id="button_edittask_back" layoutX="25.0" layoutY="26.0" mnemonicParsing="false" onMouseClicked="#goBack" prefHeight="38.0" prefWidth="39.0" styleClass="button-salmon">
+                <graphic>
+                    <FontIcon iconLiteral="fltral-dismiss-28" iconSize="20" />
+                </graphic>
+            </Button>
+            <Label fx:id="label_edittask_title" layoutX="561.0" layoutY="32.0" text="Task Name" textFill="LIGHTPINK">
+                <font>
+                    <Font size="18.0" />
+                </font>
+            </Label>
+        </children>
+    </AnchorPane>
+    <AnchorPane prefHeight="227.0" prefWidth="900.0" style="-fx-border-color: lightpink; -fx-border-style: hidden hidden solid hidden;">
+        <TextField fx:id="tf_edittask_name" layoutX="92.0" layoutY="64.0" promptText="Enter Task Name..." style="-fx-background-color: #555;" />
+        <TextArea fx:id="ta_edittask_notes" layoutX="618.0" layoutY="63.0" prefHeight="104.0" prefWidth="172.0" promptText="New Job Notes..." />
+        <Label layoutX="93.0" layoutY="46.0" text="Task Name" textFill="LIGHTPINK" />
+        <Label layoutX="93.0" layoutY="122.0" text="Task Type" textFill="LIGHTPINK" />
+        <Label layoutX="618.0" layoutY="47.0" text="Task Notes" textFill="LIGHTPINK" />
+        <Label layoutX="943.0" layoutY="47.0" text="Task Completed Date" textFill="LIGHTPINK" />
+        <Label layoutX="296.0" layoutY="45.0" text="Date Created" textFill="LIGHTPINK" />
+        <Label layoutX="14.0" layoutY="11.0" text="Task Details" textFill="LIGHTPINK">
+            <font>
+                <Font size="14.0" />
+            </font></Label>
+        <DatePicker fx:id="dp_edittask_datestart" layoutX="295.0" layoutY="63.0" prefHeight="26.0" prefWidth="150.0" />
+        <DatePicker fx:id="dp_edittask_datecomplete" layoutX="942.0" layoutY="65.0" prefHeight="26.0" prefWidth="150.0" />
+        <CheckBox fx:id="check_edittask_complete" layoutX="834.0" layoutY="69.0" mnemonicParsing="false" text="Complete" textFill="LIGHTPINK" />
+        <Label fx:id="label_taskname_null" layoutX="85.0" layoutY="68.0" text="*" textFill="DARKSALMON" visible="true" />
+        <Label fx:id="label_tasktype_null" layoutX="85.0" layoutY="145.0" text="*" textFill="DARKSALMON" visible="true" />
+        <Label fx:id="label_taskpriority_null" layoutX="289.0" layoutY="145.0" text="*" textFill="DARKSALMON" visible="true" />
+         <ChoiceBox fx:id="cb_edittask_passfail" layoutX="501.0" layoutY="141.0" prefHeight="26.0" prefWidth="59.0" />
+         <ChoiceBox fx:id="cb_edittask_priority" layoutX="296.0" layoutY="139.0" prefHeight="26.0" prefWidth="59.0" />
+         <ChoiceBox fx:id="cb_edittask_tasktype" layoutX="91.0" layoutY="140.0" prefWidth="150.0" />
+         <ChoiceBox fx:id="cb_edittask_duration" layoutX="501.0" layoutY="62.0" prefHeight="26.0" prefWidth="59.0" />
+      <Label layoutX="502.0" layoutY="44.0" text="Duration (Hours)" textFill="LIGHTPINK" />
+      <Label layoutX="297.0" layoutY="121.0" text="Priority" textFill="LIGHTPINK" />
+      <Label layoutX="501.0" layoutY="123.0" text="Pass/Fail" textFill="LIGHTPINK" />
+      <Label fx:id="label_taskduration_null" layoutX="494.0" layoutY="69.0" text="*" textFill="DARKSALMON" visible="true" />
+      <Label fx:id="label_tasknumbertechs_null" layoutX="378.0" layoutY="146.0" text="*" textFill="DARKSALMON" visible="true" />
+      <ChoiceBox fx:id="cb_edittask_numbertechs" layoutX="385.0" layoutY="140.0" prefHeight="26.0" prefWidth="59.0" />
+      <Label layoutX="386.0" layoutY="122.0" text="Required Staff" textFill="LIGHTPINK" />
+
+
+    </AnchorPane>
+    <AnchorPane minHeight="250.0" minWidth="900.0" prefHeight="250.0" prefWidth="900.0" style="-fx-border-color: lightpink; -fx-background-color: #333; -fx-border-style: hidden hidden solid hidden;">
+        <children>
+            <Label layoutX="14.0" layoutY="14.0" text="Task Assignment" textFill="LIGHTPINK">
+                <font>
+                    <Font size="14.0" />
+                </font>
+            </Label>
+            <TableView fx:id="table_availabletechs" layoutX="93.0" layoutY="57.0" prefHeight="160.0" prefWidth="260.0">
+                <columns>
+                    <TableColumn fx:id="tc_avtech_name" prefWidth="133.99999237060547" text="Technician Name" />
+                    <TableColumn fx:id="tc_avtech_timeav" prefWidth="102.20001220703125" text="    Time&#10;Available&#10;" />
+                </columns>
+            </TableView>
+            <Button fx:id="button_addtech" layoutX="686.0" layoutY="124.0" mnemonicParsing="false" onMouseClicked="#saveTaskTech" styleClass="button-steelblue" text="Assign Selected Technician" />
+         <TableView fx:id="table_avtechtaskprefs" layoutX="370.0" layoutY="57.0" prefHeight="160.0" prefWidth="250.0">
+            <columns>
+               <TableColumn fx:id="tc_techtp_taskpref" prefWidth="135.19998168945312" text="      Task&#10;Preference" />
+               <TableColumn fx:id="tc_techtp_prof" prefWidth="92.20004272460938" text="Proficiency&#10;" />
+            </columns>
+         </TableView>
+         <TableView fx:id="table_tasktech" layoutX="910.0" layoutY="58.0" prefHeight="160.0" prefWidth="200.0">
+            <columns>
+               <TableColumn fx:id="tc_tasktech_name" prefWidth="140.39996337890625" text="Technician Name" />
+               <TableColumn fx:id="tc_tasktech_delete" prefWidth="53.4000244140625" />
+            </columns>
+         </TableView>
+         <Label layoutX="176.0" layoutY="41.0" text="Available Technicians" textFill="LIGHTPINK" />
+         <Label fx:id="label_tech_task_prefs" layoutX="420.0" layoutY="40.0" text="Technician Task Preferences" textFill="LIGHTPINK" />
+         <Label layoutX="931.0" layoutY="39.0" text="Technician Task Preferences" textFill="LIGHTPINK" />
+
+        </children>
+    </AnchorPane>
+    <AnchorPane maxHeight="105.0" maxWidth="1200.0" minHeight="105.0" minWidth="1200.0" prefHeight="105.0" prefWidth="1200.0">
+        <children>
+            <Button fx:id="button_save_taskedit" layoutX="580.0" layoutY="30.0" mnemonicParsing="false" onMouseClicked="#saveTask" prefHeight="40.0" prefWidth="80.0" styleClass="button-green" text="Save" />
+            <Label fx:id="label_edittask_null_error" layoutX="520.0" layoutY="5.0" text="Fields marked with * cannot be empty" textFill="DARKSALMON" visible="true" />
+        </children>
+    </AnchorPane>
+</VBox>

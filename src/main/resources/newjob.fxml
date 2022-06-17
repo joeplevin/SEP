@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<AnchorPane fx:id="jnew_main" prefHeight="690.0" prefWidth="1200.0" style="-fx-background-color: #333;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.NewJobController">
+    <AnchorPane prefHeight="91.0" prefWidth="1200.0" style="-fx-border-color: lightpink; -fx-background-color: #333; -fx-border-style: hidden hidden solid hidden;">
+        <children>
+            <Button fx:id="button_newjob_back" layoutX="25.0" layoutY="28.0" mnemonicParsing="false" onMouseClicked="#goBack" prefHeight="38.0" prefWidth="39.0" styleClass="button-salmon">
+                <graphic>
+                    <FontIcon iconLiteral="fltral-dismiss-28" iconSize="20" />
+                </graphic>
+            </Button>
+        </children>
+    </AnchorPane>
+   <Label layoutX="14.0" layoutY="99.0" text="Job Details" textFill="LIGHTPINK">
+      <font>
+         <Font size="14.0" />
+      </font></Label>
+   <TextField fx:id="tf_newjob_name" layoutX="275.0" layoutY="154.0" promptText="Enter Job Name..." style="-fx-background-color: #555;" />
+   <TextField fx:id="tf_newjob_duration" layoutX="423.0" layoutY="241.0" promptText="Enter Job Duration..." style="-fx-background-color: #555;" />
+   <TextField fx:id="tf_newjob_cost" layoutX="673.0" layoutY="240.0" promptText="Enter Job Cost..." style="-fx-background-color: #555;" />
+   <Label layoutX="423.0" layoutY="223.0" text="Estimated Job Duration (Days)" textFill="LIGHTPINK" />
+   <Label layoutX="276.0" layoutY="136.0" text="Job Name" textFill="LIGHTPINK" />
+   <Label layoutX="673.0" layoutY="223.0" text="Estimated Job Cost (£)" textFill="LIGHTPINK" />
+   <Label layoutX="768.0" layoutY="136.0" text="Estimated Job End Date" textFill="LIGHTPINK" />
+   <Label layoutX="525.0" layoutY="136.0" text="Date Created" textFill="LIGHTPINK" />
+   <DatePicker fx:id="dp_newjob_datestart" layoutX="525.0" layoutY="154.0" prefHeight="26.0" prefWidth="150.0" />
+   <DatePicker fx:id="dp_newjob_dateend" layoutX="768.0" layoutY="153.0" prefHeight="26.0" prefWidth="150.0" />
+   <Label layoutX="468.0" layoutY="346.0" text="Notes" textFill="LIGHTPINK" />
+   <TextArea fx:id="ta_newjob_notes" layoutX="467.0" layoutY="363.0" prefHeight="130.0" prefWidth="300.0" promptText="Enter Job Notes..." />
+   <Label fx:id="label_newjobname_null" layoutX="269.0" layoutY="158.0" text="*" textFill="DARKSALMON" visible="false" />
+   <Label fx:id="label_newjobduration_null" layoutX="417.0" layoutY="245.0" text="*" textFill="DARKSALMON" visible="false" />
+   <Label fx:id="label_newjobcost_null" layoutX="667.0" layoutY="245.0" text="*" textFill="DARKSALMON" visible="false" />
+   <Label fx:id="label_newjob_nullerror" layoutX="525.0" layoutY="575.0" text="Fields marked with * cannot be empty" textFill="DARKSALMON" visible="false" />
+    <Button fx:id="button_save_newjob" layoutX="575.0" layoutY="595.0" mnemonicParsing="false" onMouseClicked="#saveJob" prefHeight="40.0" prefWidth="90.0" styleClass="button-green" text="Save" />
+   <VBox layoutX="671.0" layoutY="276.0">
+      <children>
+         <Label fx:id="label_cost_format_error" text="* Must be in format ##.##" textFill="DARKSALMON" visible="false" />
+         <Label fx:id="label_cost_value_error" text="* Cannot be more than £1000" textFill="DARKSALMON" visible="false" />
+      </children>
+   </VBox>
+   <VBox layoutX="424.0" layoutY="273.0">
+      <children>
+         <Label fx:id="label_duration_type_error" text="* Must be digits" textFill="DARKSALMON" visible="false" />
+         <Label fx:id="label_duration_length_error" text="* Cannot be longer than 10 days" textFill="DARKSALMON" visible="false" />
+      </children>
+   </VBox>
+</AnchorPane>

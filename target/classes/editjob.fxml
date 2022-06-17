@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<VBox fx:id="jedit_main" prefHeight="690.0" prefWidth="1200.0" style="-fx-background-color: #333;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.EditJobController">
+   <AnchorPane maxHeight="91.0" maxWidth="1200.0" minHeight="91.0" minWidth="1200.0" prefHeight="91.0" prefWidth="1200.0" style="-fx-border-color: lightpink; -fx-border-style: hidden hidden solid hidden;">
+      <children>
+             <Button fx:id="button_editjob_back" layoutX="25.0" layoutY="26.0" mnemonicParsing="false" onMouseClicked="#goBack" prefHeight="38.0" prefWidth="39.0" styleClass="button-salmon">
+                 <graphic>
+                     <FontIcon iconLiteral="fltral-dismiss-28" iconSize="20" />
+                 </graphic>
+             </Button>
+         <Label fx:id="label_editjob_title" layoutX="563.0" layoutY="32.0" text="Job Name" textFill="LIGHTPINK">
+            <font>
+               <Font size="18.0" />
+            </font>
+         </Label>
+      </children>
+   </AnchorPane>
+    <AnchorPane prefHeight="227.0" prefWidth="900.0" style="-fx-border-color: lightpink; -fx-border-style: hidden hidden solid hidden;">
+       <Label layoutX="14.0" layoutY="11.0" text="Job Details" textFill="LIGHTPINK">
+          <font>
+             <Font size="14.0" />
+          </font></Label>
+        <TextField fx:id="tf_editjob_name" layoutX="213.0" layoutY="71.0" promptText="Enter Job Name..." style="-fx-background-color: #555;" />
+        <TextArea fx:id="ta_editjob_notes" layoutX="622.0" layoutY="69.0" prefHeight="106.0" prefWidth="172.0" promptText="New Job Notes..." />
+        <TextField fx:id="tf_editjob_duration" layoutX="213.0" layoutY="148.0" promptText="Enter Job Duration..." style="-fx-background-color: #555;" />
+        <TextField fx:id="tf_editjob_cost" layoutX="417.0" layoutY="149.0" promptText="Enter Job Cost..." style="-fx-background-color: #555;" />
+        <Label layoutX="213.0" layoutY="130.0" text="Estimated Job Duration (Days)" textFill="LIGHTPINK" />
+        <Label layoutX="214.0" layoutY="53.0" text="Job Name" textFill="LIGHTPINK" />
+        <Label layoutX="417.0" layoutY="131.0" text="Estimated Job Cost (£)" textFill="LIGHTPINK" />
+        <Label layoutX="622.0" layoutY="52.0" text="Notes" textFill="LIGHTPINK" />
+        <Label layoutX="848.0" layoutY="52.0" text="Estimated Job End Date" textFill="LIGHTPINK" />
+        <Label layoutX="417.0" layoutY="53.0" text="Date Created" textFill="LIGHTPINK" />
+       <DatePicker fx:id="dp_editjob_datestart" layoutX="416.0" layoutY="70.0" prefHeight="26.0" prefWidth="150.0" />
+       <DatePicker fx:id="dp_editjob_dateend" layoutX="847.0" layoutY="70.0" prefHeight="26.0" prefWidth="150.0" />
+       <CheckBox fx:id="check_editjob_complete" layoutX="885.0" layoutY="113.0" mnemonicParsing="false" text="Complete" textFill="LIGHTPINK" />
+       <CheckBox fx:id="check_editjob_delay" layoutX="885.0" layoutY="153.0" mnemonicParsing="false" text="Delayed" textFill="LIGHTPINK" />
+      <Label fx:id="label_jobname_null" layoutX="206.0" layoutY="75.0" text="*" textFill="DARKSALMON" visible="false" />
+      <Label fx:id="label_jobduration_null" layoutX="207.0" layoutY="152.0" text="*" textFill="DARKSALMON" visible="false" />
+      <Label fx:id="label_jobcost_null" layoutX="410.0" layoutY="152.0" text="*" textFill="DARKSALMON" visible="false" />
+      <VBox layoutX="214.0" layoutY="174.0">
+         <children>
+            <Label fx:id="label_durationlength_error" managed="false" text="* Cannot be longer than 10 days" textFill="DARKSALMON" visible="false" />
+            <Label fx:id="label_durationtype_error" text="* Must be digits" textFill="DARKSALMON" visible="false" />
+         </children>
+      </VBox>
+      <VBox layoutX="417.0" layoutY="174.0">
+         <children>
+            <Label fx:id="label_costformat_error" text="* Must be in format ##.##" textFill="DARKSALMON" visible="false" />
+            <Label fx:id="label_costvalue_error" text="* Cannot be more than £1000" textFill="DARKSALMON" visible="false" />
+         </children>
+      </VBox>
+      <Label fx:id="label_jobcomplete_error" layoutX="873.0" layoutY="131.0" text="* Some tasks are still incomplete" textFill="DARKSALMON" visible="false" />
+
+
+    </AnchorPane>
+     <AnchorPane prefHeight="262.0" prefWidth="900.0" style="-fx-border-color: lightpink; -fx-background-color: #333; -fx-border-style: hidden hidden solid hidden;">
+         <children>
+          <Label layoutX="14.0" layoutY="14.0" text="Job Tasks" textFill="LIGHTPINK">
+             <font>
+                <Font size="14.0" />
+             </font>
+          </Label>
+          <TableView fx:id="table_editjob_tasks" layoutX="486.0" layoutY="54.0" prefHeight="166.0" prefWidth="545.0">
+            <columns>
+              <TableColumn fx:id="tc_editjob_tname" prefWidth="120.4000244140625" text="Task Name" />
+              <TableColumn fx:id="tc_editjob_ttype" prefWidth="106.0" text="Task Type" />
+               <TableColumn fx:id="tc_editjob_tpriority" minWidth="0.0" prefWidth="64.0" text="Priority" />
+               <TableColumn fx:id="tc_editjob_tduration" minWidth="0.0" prefWidth="68.0" text="Duration" />
+               <TableColumn fx:id="tc_editjob_tcomplete" prefWidth="67.60003662109375" text="Complete" />
+               <TableColumn fx:id="tc_editjob_tdelete" prefWidth="52.39996337890625" text="Delete" />
+               <TableColumn fx:id="tc_editjob_tpassfail" prefWidth="67.0" text="Pass/Fail" />
+            </columns>
+          </TableView>
+         <TextField fx:id="tf_editjob_taskname" layoutX="193.0" layoutY="73.0" promptText="Enter Task Name..." style="-fx-background-color: #555;" />
+         <Label layoutX="193.0" layoutY="54.0" text="Task Name" textFill="LIGHTPINK" />
+         <ChoiceBox fx:id="cb_editjob_tasktype" layoutX="192.0" layoutY="128.0" prefWidth="150.0" />
+         <Label layoutX="192.0" layoutY="110.0" text="Task Type" textFill="LIGHTPINK" />
+         <ChoiceBox fx:id="cb_editjob_taskduration" layoutX="386.0" layoutY="73.0" prefHeight="26.0" prefWidth="59.0" />
+         <Label layoutX="386.0" layoutY="55.0" text="Duration (Hours)" textFill="LIGHTPINK" />
+         <Label layoutX="386.0" layoutY="110.0" text="Priority" textFill="LIGHTPINK" />
+         <ChoiceBox fx:id="cb_editjob_taskpriority" layoutX="386.0" layoutY="128.0" prefHeight="26.0" prefWidth="59.0" />
+         <Button fx:id="button_editjob_addtask" layoutX="377.0" layoutY="194.0" mnemonicParsing="false" onMouseClicked="#saveJobTask" styleClass="button-steelblue" text="+ Add Task" />
+         <ChoiceBox fx:id="cb_editjob_tasktech" layoutX="192.0" layoutY="194.0" prefHeight="26.0" prefWidth="59.0" />
+         <Label layoutX="192.0" layoutY="173.0" text="Technicians Required" textFill="LIGHTPINK" />
+         <Label fx:id="label_jobtname_null" layoutX="187.0" layoutY="77.0" text="*" textFill="DARKSALMON" visible="false" />
+         <Label fx:id="label_jobttype_null" layoutX="186.0" layoutY="132.0" text="*" textFill="DARKSALMON" visible="false" />
+         <Label fx:id="label_jobttech_null" layoutX="186.0" layoutY="198.0" text="*" textFill="DARKSALMON" visible="false" />
+         <Label fx:id="label_jobtduration_null" layoutX="380.0" layoutY="77.0" text="*" textFill="DARKSALMON" visible="false" />
+         <Label fx:id="label_jobtpriority_null" layoutX="380.0" layoutY="132.0" text="*" textFill="DARKSALMON" visible="false" />
+         <Label fx:id="label_editjobtasks_null_error" layoutX="508.0" layoutY="229.0" text="Fields marked with * cannot be empty" textFill="DARKSALMON" visible="false" />
+
+         </children>
+     </AnchorPane>
+   <AnchorPane maxHeight="105.0" maxWidth="1200.0" minHeight="105.0" minWidth="1200.0" prefHeight="105.0" prefWidth="1200.0">
+      <children>
+           <Button fx:id="button_save_jobedit" layoutX="560.0" layoutY="36.0" mnemonicParsing="false" onMouseClicked="#saveJob" prefHeight="42.0" prefWidth="86.0" styleClass="button-green" text="Save" />
+         <Label fx:id="label_editjob_null_error" layoutX="507.0" layoutY="6.0" text="Fields marked with * cannot be empty" textFill="DARKSALMON" visible="false" />
+      </children>
+   </AnchorPane>
+</VBox>
